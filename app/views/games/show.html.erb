@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+ <h2> <%= @game.subgenre.name %></h2>
+<%= form_for :arr, controller: "takequiz", action: "submit", method: "post", class: "form-horizontal" do |form|%>
+<% for i in 0..showQuestions(@game.subgenre_id).length-1 %>
+        <h3>Q.<%= showQuestions(@game.subgenre_id)[i].description.html_safe %></h3>
+        <%= form.check_box(showQuestions(@game.subgenre_id)[i].id.to_s + '[1]') %> <%= showQuestions(@game.subgenre_id)[i].option1.html_safe%><br>
+        <%= form.check_box(showQuestions(@game.subgenre_id)[i].id.to_s + '[2]') %> <%= showQuestions(@game.subgenre_id)[i].option2.html_safe%><br>
+        <%= form.check_box(showQuestions(@game.subgenre_id)[i].id.to_s + '[3]') %> <%= showQuestions(@game.subgenre_id)[i].option3.html_safe%><br>
+        <%= form.check_box(showQuestions(@game.subgenre_id)[i].id.to_s + '[4]') %> <%= showQuestions(@game.subgenre_id)[i].option4.html_safe%><br>
+        <br>
+<br>
+<% end %>
+<input type="text" class="hidden" name="id" value="<%= @game.id %>">
+ <%= form.submit "Submit the QUIZ!!!", :name => nil, type: "submit", class: "btn btn-large btn-danger"%>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <% for i in 0..showQuestions(@game.subgenre_id).length-1 %>
+    <%= showQuestions(@game.subgenre_id)[i].description %>
+    <br/><%= showQuestions(@game.subgenre_id)[i].option1%>
+    <br/><%= showQuestions(@game.subgenre_id)[i].option2 %>
+    <br/><%= showQuestions(@game.subgenre_id)[i].option3 %>
+    <br/><%= showQuestions(@game.subgenre_id)[i].option4 %>
+<% end %>
+<% if current_user.id == 1 %>
+    <%= link_to 'Edit', edit_game_path(@game) %> |
+<% end %>
+<%= link_to 'Back', games_path %> -->

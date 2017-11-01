@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<% if !current_user %>
+<h1>
+    <center>
+    WELCOME TO THE QUIZ</center>
+</h1>
+<% end %>
+<br><br><br>
+
+  <head>
+    <title>Quiz</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+      <body>
+      <div class="container">
+      <center>
+      <h2>
+      <% if current_user %>
+
+      <% else %>
+        <%= link_to "Login to the Quiz app", new_user_session_path, class: "btn btn-lg btn-info" %>
+        <%= link_to "Signup", new_user_registration_path, class: "btn btn-lg btn-info" %>
+      <% end %>
+  </h2>
+
+      </center>
+
+
+    <%= yield %>
+    </div>
+  </body>
+</html>

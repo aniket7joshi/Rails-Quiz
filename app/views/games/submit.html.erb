@@ -1,0 +1,7 @@
+<h2>
+Your Score is
+<%= @score %>
+</h2>
+<%= link_to 'Back to All Quiz', games_path, class: "btn btn-info" %><br><br>
+<%= link_to 'Back to User', root_path, class: "btn btn-info" %><br><br>
+<%=link_to "Logout",destroy_user_session_path, method: :delete, class: "btn btn-lg btn-danger"%>

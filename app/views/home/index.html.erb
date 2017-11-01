@@ -1,0 +1,19 @@
+<% if current_user %>
+<center>
+<h2>
+    WELCOME TO THE QUIZ
+</h2>
+    <div class = "emailprint"><%= current_user.email %></div>
+        <br>
+        <br>
+        <%= link_to "New Quiz",games_path,class: "btn btn-lg btn-info" %>
+        <br>
+        <% if current_user.id == 1 %>
+            <br>
+            <a rel = "nofollow" href = "/admin">Go to ADMIN</a>
+        <% end %>
+        <br>
+        <br>
+<%=link_to "Logout",destroy_user_session_path, method: :delete, class: "btn btn-lg btn-danger"%>
+<% end %>
+</center>
